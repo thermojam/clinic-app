@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Build output
+dist/
+build/
+
+# Vite
+.vite/
+.cache/
+
+# macOS
+.DS_Store
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Server specific (uploads/temp if any)
+server/uploads/
+server/tmp/

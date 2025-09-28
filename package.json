@@ -1,0 +1,15 @@
+{
+    "name": "clinic-appointment-app",
+    "version": "1.0.0",
+    "scripts": {
+        "dev:client": "cd client && npm run dev",
+        "dev:server": "cd server && npm run dev",
+        "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
+    },
+    "keywords": [],
+    "author": "Nikita Mensky",
+    "license": "ISC",
+    "dependencies": {
+        "concurrently": "^9.2.1"
+    }
+}
