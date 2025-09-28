@@ -1,25 +1,10 @@
-const mongoose = require('mongoose');
-const validator = require('validator');
+const mongoose = require("mongoose");
 
-const AppointmentSchema = mongoose.Schema({
-    date: {
-        type: String,
-        required: true,
-    },
-    full_name: {
-        type: String,
-        required: true,
-    },
-    phone: {
-        type: String,
-        required: true,
-    },
-    problem: {
-        type: String,
-        required: true,
-    },
+const appointmentSchema = new mongoose.Schema({
+  full_name: { type: String, required: true },
+  phone: { type: String, required: true },
+  problem: { type: String },
+  date: { type: Date, default: Date.now }
 });
 
-const Appointment = mongoose.model('Appointment', AppointmentSchema);
-
-module.exports = Appointment;
+module.exports = mongoose.model("Appointment", appointmentSchema);

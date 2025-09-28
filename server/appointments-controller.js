@@ -1,14 +1,13 @@
-const Appointment = require('./models/Appointment');
-
-const getAppointments = async () => {
-    const appointments = await Appointment.find();
-    return appointments;
-};
+const Appointment = require("./models/Appointment");
 
 const addAppointment = async (appointment) => {
-    const createdAppointment = await Appointment.create(appointment);
-
-    return createdAppointment;
+    const created = await Appointment.create(appointment);
+    return created;
 };
 
-module.exports = {getAppointments, addAppointment};
+const getAppointments = async () => {
+    const list = await Appointment.find().sort({ date: -1 });
+    return list;
+};
+
+module.exports = { addAppointment, getAppointments };

@@ -1,23 +1,22 @@
-import { addAppointment, getAppointments } from "../api";
+import { addAppointment } from "../api";
+import { getAppointments } from "../api";
 
 export const createAppointment = (appointment) => async (dispatch) => {
+    dispatch({ type: "ADD_APPOINTMENT_START" });
     try {
         const data = await addAppointment(appointment);
-        if (data.error) {
-            dispatch({ type: "APPOINTMENT_ERROR", payload: data.error });
-        } else {
-            dispatch({ type: "APPOINTMENT_ADDED", payload: data });
-        }
+        dispatch({ type: "ADD_APPOINTMENT_SUCCESS", payload: data });
     } catch (error) {
-        dispatch({ type: "APPOINTMENT_ERROR", payload: error.message });
+        dispatch({ type: "ADD_APPOINTMENT_FAIL", payload: error.message });
     }
 };
 
 export const fetchAppointments = () => async (dispatch) => {
+    dispatch({ type: "FETCH_APPOINTMENTS_START" });
     try {
         const data = await getAppointments();
-        dispatch({ type: "APPOINTMENTS_LOADED", payload: data });
+        dispatch({ type: "FETCH_APPOINTMENTS_SUCCESS", payload: data });
     } catch (error) {
-        dispatch({ type: "APPOINTMENT_ERROR", payload: error.message });
+        dispatch({ type: "FETCH_APPOINTMENTS_FAIL", payload: error.message });
     }
 };

@@ -1,22 +1,25 @@
 export const getAppointments = () => {
     const token = sessionStorage.getItem("token");
-
     return fetch("http://localhost:8888/appointments", {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-        body: JSON.stringify({ token }),
+        headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            "Authorization": `Bearer ${token}`,
+        },
     })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.name === "JsonWebTokenError") {
-                return [];
+        .then(async (res) => {
+            if (!res.ok) {
+                const err = await res.json();
+                throw new Error(err.error || "Forbidden");
             }
-
-            return data.map((appointment) => ({
+            return res.json();
+        })
+        .then((data) =>
+            data.map((appointment) => ({
                 date: appointment.date,
                 fullName: appointment.full_name,
                 phone: appointment.phone,
                 problem: appointment.problem,
-            }));
-        });
+            }))
+        );
 };

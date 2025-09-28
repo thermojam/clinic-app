@@ -3,4 +3,10 @@ export const addAppointment = (appointment) =>
         method: "POST",
         headers: { "Content-Type": "application/json;charset=utf-8" },
         body: JSON.stringify(appointment),
-    }).then((res) => res.json());
+    }).then(async (res) => {
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.error || "Failed to add appointment");
+        }
+        return res.json();
+    });

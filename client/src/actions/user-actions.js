@@ -1,19 +1,13 @@
-import { login } from "../api";
+import { login } from "../api/login";
 
 export const loginUser = (email, password) => async (dispatch) => {
     dispatch({ type: "LOGIN_START" });
-
     try {
         const data = await login(email, password);
-
-        if (data.token) {
-            sessionStorage.setItem("token", data.token);
-            dispatch({ type: "LOGIN_SUCCESS", payload: data });
-        } else {
-            dispatch({ type: "LOGIN_ERROR", payload: data.error || "Login failed" });
-        }
+        sessionStorage.setItem("token", data.token);
+        dispatch({ type: "LOGIN_SUCCESS", payload: data });
     } catch (error) {
-        dispatch({ type: "LOGIN_ERROR", payload: error.message });
+        dispatch({ type: "LOGIN_FAIL", payload: error.message });
     }
 };
 

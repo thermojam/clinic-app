@@ -1,14 +1,16 @@
-const jwt = require('jsonwebtoken');
-const {JWT_SECRET} = require('../constants');
+const jwt = require("jsonwebtoken");
+const { JWT_SECRET } = require("../constants");
 
 function auth(req, res, next) {
-    const token = req.body.token;
+    const authHeader = req.headers['authorization'];
+    if (!authHeader) return res.status(403).send({ error: "No token provided" });
 
+    const token = authHeader.split(' ')[1]; // Bearer TOKEN
     try {
-        const verifyResult = jwt.verify(token, JWT_SECRET);
+        jwt.verify(token, JWT_SECRET);
         next();
     } catch (error) {
-        res.send(error);
+        res.status(403).send({ error: "Invalid token" });
     }
 }
 

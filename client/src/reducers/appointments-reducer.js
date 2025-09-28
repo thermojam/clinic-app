@@ -1,16 +1,17 @@
 const initialState = {
-    list: [],
+    appointments: [],
+    loading: false,
     error: null,
 };
 
 export const appointmentsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "APPOINTMENTS_LOADED":
-            return { ...state, list: action.payload };
-        case "APPOINTMENT_ADDED":
-            return { ...state, list: [...state.list, action.payload] };
-        case "APPOINTMENT_ERROR":
-            return { ...state, error: action.payload };
+        case "FETCH_APPOINTMENTS_START":
+            return { ...state, loading: true, error: null };
+        case "FETCH_APPOINTMENTS_SUCCESS":
+            return { ...state, loading: false, appointments: action.payload };
+        case "FETCH_APPOINTMENTS_FAIL":
+            return { ...state, loading: false, error: action.payload };
         default:
             return state;
     }
