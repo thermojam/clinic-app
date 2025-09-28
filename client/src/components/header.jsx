@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../actions/user-actions";
+import { logoutUser } from "../actions";
 import { Link } from "react-router-dom";
 
 export default function Header() {

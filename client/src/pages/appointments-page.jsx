@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAppointments } from "../actions/appointments-actions";
+import { fetchAppointments } from "../actions";
 
 export const AppointmentsPage = () => {
     const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import { login } from "../api/login";
+import { login } from "../api";
 
 export const loginUser = (email, password) => async (dispatch) => {
     dispatch({ type: "LOGIN_START" });

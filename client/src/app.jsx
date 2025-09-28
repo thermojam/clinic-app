@@ -1,8 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { LoginPage } from "./pages/login-page";
-import { FormPage } from "./pages/form-page";
-import { AppointmentsPage } from "./pages/appointments-page";
+import { FormPage, LoginPage, AppointmentsPage } from "./pages";
 import Header from "./components/Header";
 import { PrivateRoute } from "./components/private-route";
 

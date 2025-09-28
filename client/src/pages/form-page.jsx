@@ -1,7 +1,7 @@
-import {useState} from "react";
-import {useDispatch} from "react-redux";
-import {createAppointment} from "../actions/appointments-actions";
-import {IMaskInput} from "react-imask";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createAppointment } from "../actions";
+import { IMaskInput } from "react-imask";
 
 export const FormPage = () => {
     const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const FormPage = () => {
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input value={fullName} onChange={e => setFullName(e.target.value)} placeholder="ФИО"
                        className="border p-2 rounded" required/>
-                <IMaskInput mask="+7 (000) 000-00-00" value={phone} unmask={false} onAccept={(v) => setPhone(v)}
+                <IMaskInput mask="+7 (999) 999-99-99" value={phone} unmask={false} onAccept={(v) => setPhone(v)}
                             placeholder="Телефон" className="border p-2 rounded" required/>
                 <input value={problem} onChange={e => setProblem(e.target.value)} placeholder="Проблема"
                        className="border p-2 rounded"/>

@@ -1,5 +1,4 @@
-import { addAppointment } from "../api";
-import { getAppointments } from "../api";
+import { addAppointment, getAppointments } from "../api";
 
 export const createAppointment = (appointment) => async (dispatch) => {
     dispatch({ type: "ADD_APPOINTMENT_START" });
