@@ -23,23 +23,23 @@ export const LoginPage = () => {
     }, [token, navigate]);
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow">
-            <h2 className="text-xl font-bold mb-4">Вход для сотрудников</h2>
+        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl bg-white/30 backdrop-blur-md border border-white/20 shadow-lg">
+            <h2 className="text-xl font-bold mb-4 text-gray-800">Вход для сотрудников</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
-                    className="border p-2 rounded"
+                    className="border border-white/20 p-2 rounded bg-white/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Пароль"
-                    className="border p-2 rounded"
+                    className="border border-white/20 p-2 rounded bg-white/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 cursor-pointer">
                     Войти
                 </button>
             </form>

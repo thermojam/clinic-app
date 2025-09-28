@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
-
 body {
-    max-width: 1200px;
+    font-family: Nunito, sans-serif;
     margin: 0 auto;
+    background: rgb(155, 207, 156);
 }
