@@ -19,7 +19,6 @@ export const AppointmentsPage = () => {
     return (
         <div className="max-w-4xl mx-auto mt-10 p-6 rounded-lg shadow-lg backdrop-blur-md bg-white/30">
             <h2 className="text-xl font-bold mb-4 text-center">Все заявки</h2>
-
             <div className="grid grid-cols-4 gap-2 font-semibold border-b pb-2 mb-2">
                 <span>Дата</span>
                 <span>ФИО</span>

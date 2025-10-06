@@ -14,7 +14,7 @@ export const Header = () => {
     ];
 
     return (
-        <header className="bg-gray-200 shadow">
+        <header className="bg-white shadow">
             <div className="max-w-4xl mx-auto flex items-center justify-between h-16">
                 <h1 className="text-xl font-bold">Clinic App</h1>
 

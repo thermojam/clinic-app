@@ -1,16 +1,14 @@
 export const getAppointments = () => {
-    const token = sessionStorage.getItem("token");
     return fetch("http://localhost:8888/appointments", {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json;charset=utf-8",
-            "Authorization": `Bearer ${token}`,
         },
     })
         .then(async (res) => {
             if (!res.ok) {
                 const err = await res.json();
-                throw new Error(err.error || "Forbidden");
+                throw new Error(err.error || "Ошибка загрузки списка");
             }
             return res.json();
         })

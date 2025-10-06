@@ -1,4 +1,4 @@
+ - 🔑Admin
+ - Email: admin@clinic.com
+ - Password: securepassword
 
- #### 🔑 Admin
-#### Email: admin@clinic.com
-#### Password: securepassword

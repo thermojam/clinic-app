@@ -22,6 +22,6 @@ mongoose
     })
     .catch((err) => {
         app.listen(port, () =>
-            console.log(chalk.bgRed(`Server started on ${port}`))
+            console.log(chalk.bgRed(`Server on ${port} ... is not running`))
         );
     });
