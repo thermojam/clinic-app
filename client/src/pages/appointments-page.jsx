@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAppointments } from "../actions";
-import { Loader }  from "../components/loader";
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAppointments} from "../actions";
+import {Loader} from "../components/loader";
 
 export const AppointmentsPage = () => {
     const dispatch = useDispatch();
-    const { appointments = [], loading, error } = useSelector(
+    const {appointments = [], loading, error} = useSelector(
         (state) => state.appointments
     );
 
@@ -13,7 +13,7 @@ export const AppointmentsPage = () => {
         dispatch(fetchAppointments());
     }, [dispatch]);
 
-    if (loading) return <Loader />;
+    if (loading) return <Loader/>;
     if (error) return <p className="text-red-500">{error}</p>;
 
     return (

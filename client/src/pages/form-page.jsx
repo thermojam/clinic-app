@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createAppointment } from "../actions";
-import { IMaskInput } from "react-imask";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {createAppointment} from "../actions";
+import {IMaskInput} from "react-imask";
 
 export const FormPage = () => {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export const FormPage = () => {
         setLoading(true);
         setSuccess(false);
         try {
-            await dispatch(createAppointment({ full_name: fullName, phone, problem, date }));
+            await dispatch(createAppointment({full_name: fullName, phone, problem, date}));
             setFullName("");
             setPhone("");
             setProblem("");
@@ -31,7 +31,8 @@ export const FormPage = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl bg-white/30 backdrop-blur-md border border-white/20 shadow-lg">
+        <div
+            className="max-w-md mx-auto mt-10 p-6 rounded-xl bg-white/30 backdrop-blur-md border border-white/20 shadow-lg">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Записаться на приём</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input

@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../actions";
-import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {loginUser} from "../actions";
+import {useNavigate} from "react-router-dom";
 
 export const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { token, error } = useSelector((state) => state.user);
+    const {token, error} = useSelector((state) => state.user);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,7 +23,8 @@ export const LoginPage = () => {
     }, [token, navigate]);
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 rounded-xl bg-white/30 backdrop-blur-md border border-white/20 shadow-lg">
+        <div
+            className="max-w-md mx-auto mt-10 p-6 rounded-xl bg-white/30 backdrop-blur-md border border-white/20 shadow-lg">
             <h2 className="text-xl font-bold mb-4 text-gray-800">Вход для сотрудников</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input

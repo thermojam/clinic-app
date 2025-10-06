@@ -1,4 +1,4 @@
-const Appointment = require("./models/Appointment");
+const Appointment = require("../models/Appointment");
 
 const addAppointment = async (appointment) => {
     const created = await Appointment.create(appointment);
