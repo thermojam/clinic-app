@@ -1,7 +1,6 @@
 const express = require("express");
 const auth = require("../middlewares/auth");  // Путь относительно routes/
 const { body, validationResult } = require("express-validator");
-
 const {
     loginUser,
     createUser,
@@ -64,7 +63,6 @@ router.post(
         }
     });
 
-// Получить список
 router.get("/appointments", async (req, res) => {
     try {
         const list = await getAppointments();
@@ -74,7 +72,6 @@ router.get("/appointments", async (req, res) => {
     }
 });
 
-// Добавить запись с валидацией
 router.post(
     "/appointment",
     [

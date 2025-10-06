@@ -17,11 +17,12 @@ export const App = () => {
                     path="/appointments"
                     element={
                         <PrivateRoute>
+
                             <AppointmentsPage/>
                         </PrivateRoute>
                     }
                 />
-                <Route path="*" element={<Navigate to={token ? "/appointments" : "/login"}/>}/>
+                <Route path="*" element={<Navigate to={token ? "/appointments" : "/appointment"}/>}/>
             </Routes>
         </div>
     );
