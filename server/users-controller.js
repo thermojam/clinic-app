@@ -2,9 +2,11 @@ const User = require("./models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("./constants");
+const validator = require("validator");
 
 const loginUser = async (email, password) => {
     const user = await User.findOne({ email });
+    if (!validator.isEmail(email)) throw new Error("Invalid Email");
     if (!user) throw new Error("User is not found");
 
     const ok = await bcrypt.compare(password, user.password);
